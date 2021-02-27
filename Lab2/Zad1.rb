@@ -34,7 +34,7 @@ def maxs(arr)
 	return max
 end
 
-puts "Введите последовательность (0 для завершения)"
+puts "Введите последовательность (0 для завершения) "
 ar_num = gets.chomp.to_i
 array = []
 while ar_num !=0
