@@ -17,7 +17,7 @@ end
 def mins(arr) 
 	min = arr.first
 	for arg in arr
-		if min > arg #=> Что?! Почему?
+		if min > arg 
 			min = arg
 		end
 	end
@@ -27,7 +27,7 @@ end
 def maxs(arr)
 	max = arr.first
 	for arg in arr
-		if max < arg #=> Что?! Почему?
+		if max < arg
 			max = arg
 		end
 	end
