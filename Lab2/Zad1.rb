@@ -41,13 +41,13 @@ while ar_num !=0
 	array << ar_num
 	ar_num = gets.chomp.to_i
 end
-print array
+print "Список: ", array
 puts ""
-print sum(array)
+print "Сумма списка: ", sum(array)
 puts ""
-print proizv(array)
+print "Произведение списка: ", proizv(array)
 puts ""
-print mins(array)
+print "Минимум списка: ", mins(array)
 puts ""
-print maxs(array)
+print "Максимум списка: ", maxs(array)
 puts ""
