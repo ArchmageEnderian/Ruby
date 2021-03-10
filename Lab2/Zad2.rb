@@ -1,46 +1,22 @@
+
 def sum(arr)
-	summ = 0
-	for arg in arr
-		summ += arg
-	end
-	return summ
+	return arr.sum
 end
 
 def proizv(arr)
-	pr = 1
-	for arg in arr
-		pr *= arg
-	end
-	return pr
+	return arr.reduce(1, :*)
 end
 
 def mins(arr) 
-	min = arr.first
-	for arg in arr
-		if min > arg 
-			min = arg
-		end
-	end
-	return min
+	return arr.min
 end
 
 def maxs(arr)
-	max = arr.first
-	for arg in arr
-		if max < arg
-			max = arg
-		end
-	end
-	return max
+	return arr.max
 end
 
-puts "Введите последовательность (0 для завершения) "
-ar_num = gets.chomp.to_i
-array = []
-while ar_num !=0
-	array << ar_num
-	ar_num = gets.chomp.to_i
-end
+array = gets.chomp.split().map { |str| str.to_i }
+
 print "Список: ", array
 puts ""
 print "Сумма списка: ", sum(array)
