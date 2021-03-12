@@ -29,6 +29,13 @@ def adders5(array, imp)
 	return array | imparr
 end
 
+def adders6(array, imp)
+	imparr = [imp]
+	return array + imparr
+end
+
+
+
 
 def sum(arr)
 	return arr.sum
@@ -48,7 +55,7 @@ end
 
 puts "Введите N: "
 n = gets.chomp.to_i
-puts "Введите массив: "
+puts "Введите список: "
 main_array = inputs(n)
 
 copy_array = main_array.dup
@@ -76,8 +83,9 @@ print "4 способ: ", adders4(copy_array, imp)
 puts ""
 copy_array = []
 copy_array = main_array.dup
-print "5 способ: ", adders5(main_array, imp)
-puts ""
+print "5 способ: ", adders5(copy_array, imp)
+puts " (5 метод имеет исключения, которые ломают -_-)"
+print "6! способ: ", adders6(copy_array, imp)
 puts ""
 puts ""
 puts ""
