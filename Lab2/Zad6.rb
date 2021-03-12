@@ -17,7 +17,19 @@ def mins(arr)
 	return min_c
 end
 
-
+def maxs(arr)
+	counter = 0
+	max_c = 0
+	max = arr.first
+	for arg in arr
+		if max < arg
+			max = arg
+			max_c = counter
+		end
+		counter += 1
+	end
+	return max_c
+end
 
 def Num1(array)
 	m = mins(array)
@@ -28,6 +40,14 @@ def Num1(array)
 	puts "\n"
 end
 
+def Num2(array)
+	m = maxs(array)
+	puts "Вот: "
+	for arg in m..array.length
+		print array[arg], " "
+	end
+	puts "\n"
+end
 
 puts "Введите способ задания списка: "
 str = gets.chomp.strip.downcase
@@ -50,7 +70,7 @@ case str
 when "1"
 	Num1(array)
 when "2"
-	#Num2(array)
+	Num2(array)
 when "3"
 	#Num3(array)
 when "4"
