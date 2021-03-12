@@ -24,6 +24,11 @@ def adders4(copy_array, imp)
 	copy_array.unshift(imp)
 end
 
+def adders5(array, imp)
+	imparr = [imp]
+	return array | imparr
+end
+
 
 def sum(arr)
 	return arr.sum
@@ -68,6 +73,10 @@ puts ""
 copy_array = []
 copy_array = main_array.dup
 print "4 способ: ", adders4(copy_array, imp)
+puts ""
+copy_array = []
+copy_array = main_array.dup
+print "5 способ: ", adders5(main_array, imp)
 puts ""
 puts ""
 puts ""
