@@ -27,6 +27,6 @@ unless permach == 0 #Оператор unless
     puts "#{permach} = 0 (unless)"
 
 else
-    puts "#{permach} = 0 (else(unless))"
+    puts "#{permach} = 1 (else(unless))"
 
 end
