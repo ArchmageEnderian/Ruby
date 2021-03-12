@@ -77,6 +77,18 @@ def Num4(array)
 	return sum
 end
 
+def Num5(array)
+	sum = 0
+	counter = 0
+	for arg in array
+		if sum < arg
+			counter += 1
+		end
+		sum += arg
+	end
+	return counter
+end
+
 puts "Введите способ задания списка: "
 str = gets.chomp.strip.downcase
 
@@ -101,10 +113,10 @@ when "1"
 when "2"
 	Num2(array)
 when "3"
-	puts Num3?(array)
+	print "Ответ: ", Num3?(array), "\n"
 when "4"
-	puts Num4(array)
+	print "Ответ: ", Num4(array), "\n"
 when "5"
-	#puts Num5(array)
+	print "Ответ: ", (Num5(array) - 1), "\n"
 end
 	
