@@ -15,7 +15,10 @@ def adders2(copy_array, imp, nani)
 	copy_array.insert(nani, imp)
 end
 
-
+def adders3(copy_array, imp)
+	copy_array[copy_array.length] = imp
+	return copy_array
+end
 
 
 
@@ -55,6 +58,10 @@ puts ""
 copy_array = []
 copy_array = main_array.dup
 print "2 способ: ", adders2(copy_array, imp, n)
+puts ""
+copy_array = []
+copy_array = main_array.dup
+print "3 способ: ", adders3(copy_array, imp)
 puts ""
 puts ""
 puts ""
