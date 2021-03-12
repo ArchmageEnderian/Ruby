@@ -49,6 +49,23 @@ def Num2(array)
 	puts "\n"
 end
 
+def Num3?(array)
+	c = 0
+	for arg in 1..(array.length - 1)
+		if ((array[arg - 1] > 0 && array[arg] > 0))
+			puts "1"
+			return false
+			break
+		elsif ((array[arg - 1] < 0 && array[arg] < 0))
+			puts "2"
+			return false
+			break
+		end
+	end
+	return true
+end
+
+
 puts "Введите способ задания списка: "
 str = gets.chomp.strip.downcase
 
@@ -63,6 +80,7 @@ else
     abort "Что-то пошло не так"
 end
 
+puts array
 puts "Введите номер задания (1, 2, 3): "
 str = gets.chomp.strip.downcase
 
@@ -72,7 +90,7 @@ when "1"
 when "2"
 	Num2(array)
 when "3"
-	#Num3(array)
+	puts Num3?(array)
 when "4"
 	#Num4(array)
 end
