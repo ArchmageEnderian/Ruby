@@ -50,14 +50,11 @@ def Num2(array)
 end
 
 def Num3?(array)
-	c = 0
 	for arg in 1..(array.length - 1)
 		if ((array[arg - 1] > 0 && array[arg] > 0))
-			puts "1"
 			return false
 			break
 		elsif ((array[arg - 1] < 0 && array[arg] < 0))
-			puts "2"
 			return false
 			break
 		end
@@ -65,6 +62,20 @@ def Num3?(array)
 	return true
 end
 
+def Num4(array)
+	puts "Задайте дополнительно интервал a..b: "
+	print "a = "
+	a = gets.chomp.to_i
+	print "a = "
+	b = gets.chomp.to_i
+	sum = 0
+	for arg in array
+		if (arg > a && arg < b)
+			sum += arg
+		end
+	end
+	return sum
+end
 
 puts "Введите способ задания списка: "
 str = gets.chomp.strip.downcase
@@ -81,7 +92,7 @@ else
 end
 
 puts array
-puts "Введите номер задания (1, 2, 3): "
+puts "Введите номер задания (1, 2, 3, 4, 5): "
 str = gets.chomp.strip.downcase
 
 case str
@@ -92,6 +103,8 @@ when "2"
 when "3"
 	puts Num3?(array)
 when "4"
-	#Num4(array)
+	puts Num4(array)
+when "5"
+	#puts Num5(array)
 end
 	
