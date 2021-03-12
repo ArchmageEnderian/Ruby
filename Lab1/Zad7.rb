@@ -1,5 +1,4 @@
-def Summ_num(n)
-	num = n.to_i
+def Summ_num(num)
 	sum = 0
 	while num != 0
 		sum += num % 10
@@ -8,8 +7,7 @@ def Summ_num(n)
 	return sum
 end
 
-def Pr_num(n)
-	num = n.to_i
+def Pr_num(num)
 	sum = 1
 	while num != 0
 		sum *= num % 10
@@ -18,8 +16,7 @@ def Pr_num(n)
 	return sum
 end
 
-def Max_num(n)
-	num = n.to_i
+def Max_num(num)
 	max = num % 10
 	num /= 10
 	while num != 0
@@ -32,8 +29,7 @@ def Max_num(n)
 	return max
 end
 
-def Min_num(n)
-	num = n.to_i
+def Min_num(num)
 	min = num % 10
 	num /= 10
 	while num != 0
@@ -46,8 +42,7 @@ def Min_num(n)
 	return min
 end
 
-def Prost_num(n)
-	num = n.to_i
+def Prost_num(num)
 	count = 0
 	for i in 2..num
 		if (num % i) == 0 then
@@ -60,9 +55,7 @@ def Prost_num(n)
 	end
 end
 
-def Nomer1()
-	puts "Ну введи число, попробуй"
-	nums = gets.chomp.to_i
+def Nomer1(nums) # 11
 	max = -999999
 	counter = 0
 	for i in 1..nums
@@ -70,13 +63,11 @@ def Nomer1()
 			max = i
 		end
 	end
-	print "А ты хорош, ну ладно! ", max
-	puts ""
+	print "А ты хорош, ну ладно! "
+	return max
 end
 
-def Nomer2()
-	puts "Ну введи число, попробуй"
-	num = gets.chomp.to_i
+def Nomer2(num) # 1557
 	pr = 1
 	while num != 0
 		if (num % 10) % 5 == 0
@@ -84,20 +75,40 @@ def Nomer2()
 		end
 		num /= 10
 	end
-	print "А ты хорош, ну ладно! ", pr
-	puts ""
+	print "А ты хорош, ну ладно! "
+	return pr
+end
+
+def NOD(f, s)
+	if (f % s == 0) then s 
+	else
+		c = f % s 
+		NOD(s, c) 
+	end
+end
+
+def Nomer3(nums) # 45 (15 & 20)
+	for i in 1..nums
+		if ( (nums % i == 0) && (!Prost_num(i)) && (i % 2 == 1) ) 
+			max = i
+		end
+	end
+	print "А ты хорош, ну ладно! "
+	return NOD(max.to_i, Pr_num(nums).to_i)
 end
 
 
+puts "Ну введи число, попробуй"
+num = gets.chomp.to_i
 puts "Выбирай, смерт"
 choise = gets.chomp
 case choise
 when "1"
-	Nomer1()
+	puts Nomer1(num)
 when "2"
-	Nomer2()
+	puts Nomer2(num)
 when "3"
-	#Nomer3()
+	puts Nomer3(num)
 when ""
 	puts "Hello World"
 else
