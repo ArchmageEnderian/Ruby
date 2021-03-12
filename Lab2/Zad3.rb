@@ -7,8 +7,12 @@ def inputs(nina)
 	return array
 end
 
-def adders1(array, imp)
-	array << imp
+def adders1(copy_array, imp)
+	copy_array << imp
+end
+
+def adders2(copy_array, imp, nani)
+	copy_array.insert(nani, imp)
 end
 
 
@@ -36,21 +40,28 @@ puts "Введите N: "
 n = gets.chomp.to_i
 puts "Введите массив: "
 main_array = inputs(n)
-copy_array = main_array
+
+copy_array = main_array.dup
 
 puts "Введите 1 число: "
 imp = gets.chomp.to_i
 
-print "1 способ: ", adders1(copy_array, imp)
 puts ""
-
-puts ""
-puts ""
-puts ""
-
-
 print "Список: ", main_array
 puts ""
+
+print "1 способ: ", adders1(copy_array, imp)
+puts ""
+copy_array = []
+copy_array = main_array.dup
+print "2 способ: ", adders2(copy_array, imp, n)
+puts ""
+puts ""
+puts ""
+puts ""
+
+
+
 print "Сумма списка: ", sum(main_array)
 puts ""
 print "Произведение списка: ", proizv(main_array)
