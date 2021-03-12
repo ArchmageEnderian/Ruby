@@ -109,6 +109,14 @@ when "2"
 	puts Nomer2(num)
 when "3"
 	puts Nomer3(num)
+when "4"
+	puts Summ_num(num)
+when "5"
+	puts Pr_num(num)
+when "6"
+	puts Max_num(num)
+when "7"
+	puts Prost_num(num)
 when ""
 	puts "Hello World"
 else
