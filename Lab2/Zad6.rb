@@ -9,7 +9,7 @@ def mins(arr)
 	min_c = 0
 	min = arr.first
 	for arg in arr
-		if min > arg 
+		if min >= arg 
 			min_c = counter
 		end
 		counter += 1
@@ -17,14 +17,17 @@ def mins(arr)
 	return min_c
 end
 
+
+
 def Num1(array)
 	m = mins(array)
 	puts "Вот: "
-	for arg in 1..m
-		print array[i], " "
+	for arg in 0..(m -1)
+		print array[arg], " "
 	end
 	puts "\n"
 end
+
 
 puts "Введите способ задания списка: "
 str = gets.chomp.strip.downcase
@@ -52,5 +55,5 @@ when "3"
 	#Num3(array)
 when "4"
 	#Num4(array)
-
+end
 	
