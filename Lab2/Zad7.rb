@@ -84,6 +84,17 @@ def Num4(array)
 	return sum
 end
 
+def Num5(array)
+	sum = 0
+	counter = 0
+	array[0..array.length].each { |arg| 
+		if sum < arg
+			counter += 1
+		end
+		sum += arg
+	}
+	return counter
+end
 
 puts "Введите способ задания списка: "
 str = gets.chomp.strip.downcase
@@ -111,5 +122,7 @@ when "3"
 	print "Ответ: ", Num3?(array), "\n"
 when "4"
 	print "Ответ: ", Num4(array), "\n"
+when "5"
+	print "Ответ: ", (Num5(array) - 1), "\n"
 end
 	
