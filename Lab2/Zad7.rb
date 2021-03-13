@@ -38,6 +38,14 @@ def Num1(array)
 	puts "\n"
 end
 
+def Num2(array)
+	m = maxs(array)
+	puts "Вот: "
+	array[(m + 1)..(array.length)].each { |arg| print arg, " " }
+	
+	puts "\n"
+end
+
 
 
 puts "Введите способ задания списка: "
@@ -54,12 +62,13 @@ else
     abort "Что-то пошло не так"
 end
 
-puts array
 puts "Введите номер задания (1, 2, 3, 4, 5): "
 str = gets.chomp.strip.downcase
 
 case str
 when "1"
 	Num1(array)
+when "2"
+	Num2(array)
 end
 	
