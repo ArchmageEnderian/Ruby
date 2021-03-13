@@ -66,7 +66,7 @@ def Num4(array)
 	puts "Задайте дополнительно интервал a..b: "
 	print "a = "
 	a = gets.chomp.to_i
-	print "a = "
+	print "b = "
 	b = gets.chomp.to_i
 	sum = 0
 	for arg in array
@@ -103,7 +103,6 @@ else
     abort "Что-то пошло не так"
 end
 
-puts array
 puts "Введите номер задания (1, 2, 3, 4, 5): "
 str = gets.chomp.strip.downcase
 
