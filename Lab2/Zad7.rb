@@ -70,6 +70,19 @@ def Num3?(array)
 	return true
 end
 
+def Num4(array)
+	puts "Задайте дополнительно интервал a..b: "
+	print "a = "
+	a = gets.chomp.to_i
+	print "b = "
+	b = gets.chomp.to_i
+	sum = 0
+	array[0..array.length].each { |arg| 
+		if (arg > a && arg < b) 
+			sum += arg 
+		end }
+	return sum
+end
 
 
 puts "Введите способ задания списка: "
@@ -96,5 +109,7 @@ when "2"
 	Num2(array)
 when "3"
 	print "Ответ: ", Num3?(array), "\n"
+when "4"
+	print "Ответ: ", Num4(array), "\n"
 end
 	
