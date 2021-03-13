@@ -46,6 +46,30 @@ def Num2(array)
 	puts "\n"
 end
 
+def Num3?(array)
+	if array.first > 0
+		flag = 1
+	else
+		flag = -1
+	end
+	array[1..(array.length - 1)].each { |arg|  
+		if (flag > 0 && arg > 0)
+			return false
+			break
+		elsif (flag < 0 && arg < 0)
+			return false
+			break
+		end 
+
+		if arg > 0
+			flag = 1
+		else
+			flag = -1
+		end
+	}
+	return true
+end
+
 
 
 puts "Введите способ задания списка: "
@@ -70,5 +94,7 @@ when "1"
 	Num1(array)
 when "2"
 	Num2(array)
+when "3"
+	print "Ответ: ", Num3?(array), "\n"
 end
 	
