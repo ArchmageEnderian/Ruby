@@ -77,7 +77,7 @@ def Num4(array)
 	print "b = "
 	b = gets.chomp.to_i
 	sum = 0
-	array[0..array.length].each { |arg| 
+	array.each { |arg| 
 		if (arg > a && arg < b) 
 			sum += arg 
 		end }
@@ -87,7 +87,7 @@ end
 def Num5(array)
 	sum = 0
 	counter = 0
-	array[0..array.length].each { |arg| 
+	array.each { |arg| 
 		if sum < arg
 			counter += 1
 		end
