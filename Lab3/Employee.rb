@@ -1,117 +1,43 @@
 class Employee
+
+def self.Telepfone?(tel)
+	if tel.match(/^(\+\s*?7|8)([- ()]*\d){10}$/)
+		return true
+	end
+	return false
+end
+
+
+attr_accessor :fio, :birthdate, :telepfone, :adress, :email, :passport_ser, :passport_num, :spec, :worktime, :last_work_place, :last_spec, :last_money
 #Переменные класса
 @@counter = 0
 #Конструктор
-def initialize(fio, birthdate, telepfone, adress, email, passport_ser, passport_num, spec, worktime, last_work_place, last_spec, last_money)
-	@fio = fio
-	@birthdate = birthdate
-	@telepfone = telepfone
-	@adress = adress
-	@email = email
-	@passport_ser = passport_ser
-	@passport_num = passport_num
-	@spec = spec	
-	@worktime = worktime
-	@last_work_place = last_work_place
-	@last_spec = last_spec
-	@last_mpney = last_money
+def initialize(fio, birthdate, telepfone, adress, email, passport_ser, passport_num, spec, worktime, last_work_place = NULL, last_spec = NULL, last_money = NULL)
+	self.fio = fio
+	self.birthdate = birthdate
+	self.telepfone = telepfone
+	self.adress = adress
+	self.email = email
+	self.passport_ser = passport_ser
+	self.passport_num = passport_num
+	self.spec = spec	
+	self.worktime = worktime
+	self.last_work_place = last_work_place
+	self.last_spec = last_spec
+	self.last_money = last_money
 	@@counter += 1
 end
-#ALL_Getter
 
-def Printer
-	puts "Вывод:"
-	puts @fio
-	puts @birthdate
-	puts @telepfone
-	puts @adress
-	puts @email
-	puts @passport_ser
-	puts @passport_num
-	puts @spec
-	puts @worktime
-	puts @last_work_place
-	puts @last_spec
-	puts @last_money
+
+# ^(([+](7))|(8))(\-| |\()?\d{3}(\-| |\))?\d{7}$
+
+def to_s
+    t = "ФИО: #{@fio} (#{@spec}); ДР: #{@birthdate};\nКонтакты: #{@telepfone}; #{@email}; #{@adress};\nСтаж: #{@worktime}; Предудыщая работа: #{@last_work_place}; Предудыщая специальность: #{@last_spec}; ЗП: #{@last_money}"
+    return t
 end
 
-#Поле Getter's
 
-def fio
-	@fio
-end
-def birthdate
-	@birthdate
-end
-def telepfone
-	@telepfone
-end
-def adress
-	@adress
-end
-def email
-	@email
-end
-def passport_ser
-	@passport_ser
-end
-def passport_num
-	@passport_num
-end
-def spec
-	@spec
-end
-def worktime
-	@worktime
-end
-def last_work_place
-	@last_work_place
-end
-def last_spec
-	@last_spec
-end
-def last_money
-	@last_money
-end
 
-#Поле Setter's
-
-def fio = (value)
-	@fio = (value)
-end
-def birthdate = (value)
-	@birthdate = (value)
-end
-def telepfone = (value)
-	@telepfone = (value)
-end
-def adress = (value)
-	@adress = (value)
-end
-def email = (value)
-	@email = (value)
-end
-def passport_ser = (value)
-	@passport_ser = (value)
-end
-def passport_num = (value)
-	@passport_num = (value)
-end
-def spec = (value)
-	@spec = (value)
-end
-def worktime = (value)
-	@worktime = (value)
-end
-def last_work_place = (value)
-	@last_work_place = (value)
-end
-def last_spec = (value)
-	@last_spec = (value)
-end
-def last_money = (value)
-	@last_money = (value)
-end
 
 end
 

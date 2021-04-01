@@ -17,4 +17,13 @@ last_money = gets.chomp
 
 Person = Employee.new(fio, birthdate, telepfone, adress, email, passport_ser, passport_num, spec, worktime, last_work_place, last_spec, last_money)
 
-Person.Printer
+puts "Добавить номер? (1/0)"
+condition = gets.chomp.to_i
+case condition
+when 1
+	puts Employee.Telepfone?("+7-918-1234567")
+when 0
+	puts "NOPE"
+end
+
+puts Person
