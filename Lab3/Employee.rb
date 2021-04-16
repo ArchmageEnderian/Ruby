@@ -19,7 +19,9 @@ class Employee
 		@last_money = last_money
 		@@counter += 1
 	end
-#Getter/Setter (ручками)
+
+	#Getter/Setter (ручками)
+	
 	def fio
     	@fio
 	end
@@ -48,7 +50,7 @@ class Employee
 # ^([А-Яа-я]+[- ]+)([А-Яа-я]*[- ]+)([А-Яа-я]*[- ]*)+ (Регулярка для имени)
 
 	def to_s
-    	t = "ФИО: #{@fio}; Специализация: #{@spec}; ДР: #{@birthdate}\nКонтакты: #{@telephone}; Почта: #{@email}; Адресс: #{@adress}\nСтаж: #{@worktime}\nПредудыщая работа: #{@last_work_place}; Прошлая специальность: #{@last_spec}; ЗП: #{@last_money}"
+    	t = "ФИО: #{@fio}; Серия: #{@passport_ser}; Номер: #{@passport_num};\nСпециализация: #{@spec}; ДР: #{@birthdate};\nКонтакты: #{@telephone}; Почта: #{@email}; Адресс: #{@adress};\nСтаж: #{@worktime};\nПредудыщая работа: #{@last_work_place}; Прошлая специальность: #{@last_spec}; ЗП: #{@last_money};"
     	return t
 	end
 
