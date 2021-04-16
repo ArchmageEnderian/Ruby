@@ -20,7 +20,7 @@ class TerminalViewEmp
 				when 1
 					self.add_person()
 				when 2
-					puts @mas_of_emp
+					self.printer
 				when 0
 				break
 			end
@@ -44,13 +44,13 @@ class TerminalViewEmp
 		@Person = Employee.new("Иллидан Ярость Бури", "00.00.0000", "88005553535", "Калимдор", "IllidanStormrage@Blizzard.com", "6666", "666666", "Повелитель Запределья, Хозяин Черного Храма", "Я не видел отпуск уже 10000 лет!", "Калимдор", "Чародей, Воин, Боец, Маг, Разбойник, Охотник на демонов", "∞ Маны из 'Колодца Маны'")
 		@mas_of_emp << @Person
 		puts "Добавить еще?\n1 - Да\n0 - Нет"
-		ff = gets.chomp.to_i
-		qq = false
-		if(ff == 1 && qq != true)
+		@ff = gets.chomp.to_i
+		@qq = false
+		if(@ff == 1 && @qq != true)
 			self.add_person()
 		else
-			puts @mas_of_emp
-			qq = true
+			self.printer
+			@qq = true
 		end
 
 
@@ -62,6 +62,11 @@ class TerminalViewEmp
 
 	def read_all
 
+	end
+
+	def printer
+		system "clear"
+		puts "====================", @mas_of_emp, "===================="
 	end
 
 
