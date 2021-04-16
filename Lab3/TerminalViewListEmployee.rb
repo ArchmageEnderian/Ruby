@@ -3,21 +3,26 @@ require "#{r}/Employee.rb"
 
 
 class TerminalViewEmp
-	@@mas_of_emp = Array.new()
+
+	r = File.dirname(__FILE__)
+	file = File.open("#{r}/Emp.txt")
 
 	def initialize()
+		@mas_of_emp = Array.new()
+	end
+
+	def menu()
 		flag = 1
 		while flag != 0
-			#костыль
-			puts "Выберите команду\n1 - добавить пользователя\n0 - Выход\n2 - Вывод пользователя"
+			puts "Выберите команду\n1 - Добавить пользователя\n0 - Выход\n2 - Вывод пользователя"
 			flag = gets.chomp.to_i
 			case flag
 				when 1
-					add_person()
+					self.add_person()
 				when 2
-					puts @@mas_of_emp
+					puts @mas_of_emp
 				when 0
-					break
+				break
 			end
 		end
 	end
@@ -36,14 +41,27 @@ class TerminalViewEmp
 		#@last_work_place = gets.chomp
 		#@last_spec = gets.chomp
 		#@last_money = gets.chomp
-		@Person = Employee.new("Салтыков - щЕдрин Иван-дурак Ахмед заде", "00.00.0000", "88005553535", "Калимдор", "IllidanStormrage@Blizzard.com", "6666", "666666", "Повелитель Запределья, Хозяин Черного Храма", "Я не видел отпуск уже 10000 лет!", "Калимдор", "Чародей, Воин, Боец, Маг, Разбойник, Охотник на демонов", "∞ Маны из 'Колодца Маны'")
-		@@mas_of_emp << @Person
+		@Person = Employee.new("Иллидан Ярость Бури", "00.00.0000", "88005553535", "Калимдор", "IllidanStormrage@Blizzard.com", "6666", "666666", "Повелитель Запределья, Хозяин Черного Храма", "Я не видел отпуск уже 10000 лет!", "Калимдор", "Чародей, Воин, Боец, Маг, Разбойник, Охотник на демонов", "∞ Маны из 'Колодца Маны'")
+		@mas_of_emp << @Person
+		puts "Добавить еще?\n1 - Да\n0 - Нет"
+		ff = gets.chomp.to_i
+		qq = false
+		if(ff == 1 && qq != true)
+			self.add_person()
+		else
+			puts @mas_of_emp
+			qq = true
+		end
+
 
 	end
 
-	#Временный костыль
-	def print_mas
-    	@@mas_of_emp
+	def write_all
+
+	end
+
+	def read_all
+
 	end
 
 
@@ -54,3 +72,4 @@ end
 
 Term = TerminalViewEmp.new()
 
+Term.menu()

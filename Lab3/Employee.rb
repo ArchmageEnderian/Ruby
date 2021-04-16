@@ -48,7 +48,7 @@ class Employee
 # ^([А-Яа-я]+[- ]+)([А-Яа-я]*[- ]+)([А-Яа-я]*[- ]*)+ (Регулярка для имени)
 
 	def to_s
-    	t = "ФИО: #{@fio}; Специализация:#{@spec}; ДР: #{@birthdate}\nКонтакты: #{@telephone}; Почта: #{@email}; Адресс: #{@adress}\nСтаж: #{@worktime}\nПредудыщая работа: #{@last_work_place}; Прошлая специальность: #{@last_spec}; ЗП: #{@last_money}"
+    	t = "ФИО: #{@fio}; Специализация: #{@spec}; ДР: #{@birthdate}\nКонтакты: #{@telephone}; Почта: #{@email}; Адресс: #{@adress}\nСтаж: #{@worktime}\nПредудыщая работа: #{@last_work_place}; Прошлая специальность: #{@last_spec}; ЗП: #{@last_money}"
     	return t
 	end
 
@@ -64,6 +64,7 @@ class Employee
 		email.match(/^[\w\_\.]+\@\w+\.[\w\.]+$/)
 	end
 
+	#Пофиксить
 	def fio_stabilizator(fio)
 		raise "Неверный формат ФИО: #{fio}" unless Employee.is_fio_correct? fio.strip
 		word_fio = fio.split()
