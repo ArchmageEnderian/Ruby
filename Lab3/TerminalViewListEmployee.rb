@@ -1,5 +1,5 @@
 r = File.dirname(__FILE__)
-require "#{r}/ListEmployee.rb"
+require "#{r}/TerminalList.rb"
 
 
 class TerminalViewEmp
@@ -8,8 +8,7 @@ class TerminalViewEmp
 	file = File.open("#{r}/Emp.txt")
 
 	def initialize()
-		@mas_of_emp = Array.new()
-		self.read_all
+
 	end
 
 	def menu()
@@ -32,41 +31,10 @@ class TerminalViewEmp
 		end
 	end
 
-	def add_person()
-		#puts "Ввод:"
-		#@fio = gets.chomp
-		#@birthdate = gets.chomp
-		#@telephone = gets.chomp
-		#@adress = gets.chomp
-		#@email = gets.chomp
-		#@passport_ser = gets.chomp
-		#@passport_num = gets.chomp
-		#@spec = gets.chomp
-		#@worktime = gets.chomp
-		#@last_work_place = gets.chomp
-		#@last_spec = gets.chomp
-		#@last_money = gets.chomp
-		@Person = Employee.new("Иллидан Ярость Бури", "00.00.0000", "88005553535", "Калимдор", "IllidanStormrage@Blizzard.com", "6666", "666666", "Повелитель Запределья, Хозяин Черного Храма", "Я не видел отпуск уже 10000 лет!", "Калимдор", "Чародей, Воин, Боец, Маг, Разбойник, Охотник на демонов", "∞ Маны из 'Колодца Маны'")
-		@mas_of_emp << @Person
-		puts "Добавить еще?\n1 - Да\n0 - Нет"
-		@ff = gets.chomp.to_i
-		@qq = false
-		if(@ff == 1 && @qq != true)
-			self.add_person()
-		else
-			self.printer
-			@qq = true
-		end
-	end
-
-
-
-	def write_all
-		r = File.dirname(__FILE__)
-		File.write("#{r}/Emp.txt", @mas_of_emp.join("\n\n"))
-	end
-
 	
+
+
+
 
 
 	def printer
