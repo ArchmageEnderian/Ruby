@@ -2,7 +2,7 @@ class Employee
 #Getter/Setter (attr_accessor)
 	attr_accessor :birthdate, :adress, :passport_ser, :passport_num, :spec, :worktime, :last_work_place, :last_spec, :last_money
 #Переменные класса
-	@@counter = 0
+
 #Конструктор
 	def initialize(fio, birthdate, telephone, adress, email, passport_ser, passport_num, spec, worktime, last_work_place = NULL, last_spec = NULL, last_money = NULL)
 		self.fio = fio
@@ -17,7 +17,6 @@ class Employee
 		@last_work_place = last_work_place
 		@last_spec = last_spec
 		@last_money = last_money
-		@@counter += 1
 	end
 
 	#Getter/Setter (ручками)
@@ -67,7 +66,8 @@ class Employee
 		last_work_place = mas_str_constr[9].split(":")[1].strip
 		last_spec = mas_str_constr[10].split(":")[1].strip
 		last_money = mas_str_constr[11].split(":")[1].strip
-		return Employee.new(fio, birthdate, telep, adress, email, passport_ser, passport_num, spec, worktime, last_work_place, last_spec, last_money)
+		pers = Employee.new(fio, birthdate, telep, adress, email, passport_ser, passport_num, spec, worktime, last_work_place, last_spec, last_money)
+		return pers
 	end
 
 	def self.is_fio_correct?(fio)
