@@ -54,6 +54,22 @@ class Employee
     	return t
 	end
 
+	def self.creator_empolyee_object_from_string(mas_str_constr)
+		fio = mas_str_constr[0].split(":")[1].strip
+		birthdate = mas_str_constr[4].split(":")[1].strip
+		telep = mas_str_constr[5].split(":")[1].strip 
+		adress = mas_str_constr[7].split(":")[1].strip
+		email = mas_str_constr[6].split(":")[1].strip
+		passport_ser = mas_str_constr[1].split(":")[1].strip
+		passport_num = mas_str_constr[2].split(":")[1].strip
+		spec = mas_str_constr[3].split(":")[1].strip
+		worktime = mas_str_constr[8].split(":")[1].strip
+		last_work_place = mas_str_constr[9].split(":")[1].strip
+		last_spec = mas_str_constr[10].split(":")[1].strip
+		last_money = mas_str_constr[11].split(":")[1].strip
+		return Employee.new(fio, birthdate, telep, adress, email, passport_ser, passport_num, spec, worktime, last_work_place, last_spec, last_money)
+	end
+
 	def self.is_fio_correct?(fio)
 		fio.match(/^([А-Яа-я]+[- ]+)([А-Яа-я]*[- ]+)([А-Яа-я]*[- ]*)+/)
 	end
