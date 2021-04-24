@@ -15,22 +15,62 @@ class TerminalViewEmp
 		system "clear"
 		flag = 1
 		while flag != 0
-			puts "Выберите команду\n1 - Добавить пользователя\n2 - Вывод пользователя\n3 - Запись в файл\n4 - Принудительное чтение из файла\n0 - Выход\n"
+			puts "Выберите команду\n1 - Добавить нового пользователя\n2 - Вывод пользователей\n3 - Поиск пользователя\n4 - Режим редактирования\n5 - Режим удаления\n6 - Сохранение в файл\n7 - Сортировка\n8 - Выход\n"
+			print "Ваш выбор: "
 			flag = gets.chomp.to_i
-			puts ""
 			case flag
 				when 1
 					self.adder
 				when 2
 					self.printer
 				when 3
-					@listed.write_all
+					self.group_finder
 				when 4
-					#self.read_all
+					#self.changer
+				when 5
+						
+				when 6
+					@listed.write_all
+				when 8
+					break
 				when 0
-				break
+					break
 			end
 		end
+	end
+
+
+	def group_finder
+		puts "Выберите поле поиска\n1 - ФИО\n2 - Email\n3 - Телефон\n0 - Выход"
+		choise = gets.chomp.to_i
+		puts ""
+		case choise
+			when 1
+				self.find_fio
+			when 2
+				self.find_email
+			when 3
+				self.find_tel
+			when 0
+				#skippingo#
+		end
+	end
+
+	def find_fio
+		str = gets.chomp
+		system "clear"
+		puts "====================", @listed.finder_fio(str), "===================="
+	end
+
+	def find_email
+		str = gets.chomp
+		system "clear"
+		puts "====================", @listed.finder_email(str), "===================="
+	end
+		def find_tel
+		str = gets.chomp
+		system "clear"
+		puts "====================", @listed.finder_tel(str), "===================="
 	end
 
 	def adder
@@ -59,14 +99,6 @@ class TerminalViewEmp
 			self.printer
 			@qq = true
 		end
-
-
-
-
-
-
-
-
 	end
 
 

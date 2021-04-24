@@ -28,6 +28,37 @@ class ListEmployee
 		@mas_of_emp << person
 	end
 
+	def finder_fio(str_fio)
+		@mas_of_finds = Array.new()
+		@mas_of_emp.each do |pers|
+			if(pers.fio == str_fio)
+				@mas_of_finds << pers
+			end
+		end
+		@mas_of_finds
+	end
+
+	def finder_email(str_fio)
+		@mas_of_finds = Array.new()
+		@mas_of_emp.each do |pers|
+			if(pers.email == str_fio)
+				@mas_of_finds << pers
+			end
+		end
+		@mas_of_finds
+	end
+
+	def finder_tel(str_fio)
+		@mas_of_finds = Array.new()
+		@mas_of_emp.each do |pers|
+			if(pers.telepfone == str_fio)
+				@mas_of_finds << pers
+			end
+		end
+		@mas_of_finds
+	end
+
+
 	def printer
 		@mas_of_emp
 	end
