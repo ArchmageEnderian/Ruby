@@ -39,6 +39,14 @@ class TerminalViewEmp
 		end
 	end
 
+	def changer
+		puts "Выберите запись для изменения (введите номер)"
+		self.printer
+		choise = gets.chomp.to_i
+		puts "" # Доделать изменеие записи, гемор
+
+		
+	end
 
 	def group_finder
 		puts "Выберите поле поиска\n1 - ФИО\n2 - Email\n3 - Телефон\n0 - Выход"
