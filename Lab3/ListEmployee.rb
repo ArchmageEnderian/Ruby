@@ -57,9 +57,44 @@ class ListEmployee
 		@mas_of_finds
 	end
 
+	def person_changer(pers_id, field_id, new_str)
+		#костыль
+		case field_id
+			when 1
+				@mas_of_emp[pers_id].fio = new_str
+			when 2
+				@mas_of_emp[pers_id].birthdate = new_str
+			when 3
+				@mas_of_emp[pers_id].telephone = new_str
+			when 4
+				@mas_of_emp[pers_id].adress = new_str
+			when 5
+				@mas_of_emp[pers_id].email = new_str
+			when 6
+				@mas_of_emp[pers_id].passport_ser = new_str
+			when 7
+				@mas_of_emp[pers_id].passport_num = new_str
+			when 8
+				@mas_of_emp[pers_id].spec = new_str
+			when 9
+				@mas_of_emp[pers_id].worktime = new_str
+			when 10
+				@mas_of_emp[pers_id].last_work_place = new_str
+			when 11
+				@mas_of_emp[pers_id].last_spec = new_str
+			when 12
+				@mas_of_emp[pers_id].last_money = new_str
+		end
+	end
+
+	def person_killer(pers_to_kill)
+		@mas_of_emp.delete_at(pers_to_kill)
+	end
 
 	def printer
 		@mas_of_emp #Добавить цифры?
 	end
 
 end
+
+#реализовать программу, которая выводит свой код и ничего более - 3 лабы простят

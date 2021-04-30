@@ -8,10 +8,20 @@ class TerminalViewEmp
 
 	def initialize()
 		@listed = ListEmployee.new
+		system "clear"
+		print "Unit-Test is under processing"
+		sleep(1)
+		print "."
+		sleep(1)
+		print "."
+		sleep(1)
+		print "."
+		sleep(1)
 	end
 
 	def menu()
 		system "clear"
+		self.printer
 		flag = 1
 		while flag != 0
 			puts "Выберите команду\n1 - Добавить нового пользователя\n2 - Вывод пользователей\n3 - Поиск пользователя\n4 - Режим редактирования\n5 - Режим удаления\n6 - Сохранение в файл\n7 - Сортировка\n8 - Выход\n"
@@ -25,35 +35,43 @@ class TerminalViewEmp
 				when 3
 					self.group_finder
 				when 4
-					#self.changer
+					self.changer
 				when 5
-						
+					self.deleter
 				when 6
 					@listed.write_all
 				when 8
 					break
 			end
 		end
+		@listed.write_all
 	end
 
 	def changer
 		self.printer
 		puts "Выберите запись для изменения (введите номер)"
-		choise = gets.chomp.to_i
-		puts "Выберите поле для изменения" # Доделать изменеие записи, гемор
+		print "Ваш выбор: "
+		choise = (gets.chomp.to_i) - 1
 		i = -1
 
 		while i != 0
-			
-
+			system "clear"
+			self.printer
+			puts "1)ФИО\n2)Серия\n3)Номер\n4)Специализация\n5)ДР\n6)Контакты\n7)Почта\n8)Адресс\n9)Стаж\n10)Предудыщая работа\n11)Прошлая специальность\n12)Заработная Плата\n0)Выход"
+			puts "Выберите поле для изменения"
+			print "Ваш выбор: "
+			i = gets.chomp.to_i
+			if (i != 0)
+				print "Введите новые данные: "
+				strr = gets.chomp
+				@listed.person_changer(choise, i, strr)
+			end
 		end
-
-
-		
 	end
 
 	def group_finder
 		puts "Выберите поле поиска\n1 - ФИО\n2 - Email\n3 - Телефон\n0 - Выход"
+		print "Ваш выбор: "
 		choise = gets.chomp.to_i
 		puts ""
 		case choise
@@ -83,6 +101,13 @@ class TerminalViewEmp
 		str = gets.chomp
 		system "clear"
 		puts "====================", @listed.finder_tel(str), "===================="
+	end
+
+	def deleter
+		self.printer
+		puts "Выберите запись для изменения (введите номер)"
+		choise = (gets.chomp.to_i) - 1
+		@listed.person_killer(choise)
 	end
 
 	def adder
