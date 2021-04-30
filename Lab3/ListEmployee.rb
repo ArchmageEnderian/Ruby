@@ -1,5 +1,4 @@
-r = File.dirname(__FILE__)
-require "#{r}/Employee.rb"
+require_relative "Employee.rb"
 
 class ListEmployee
 
@@ -38,20 +37,20 @@ class ListEmployee
 		@mas_of_finds
 	end
 
-	def finder_email(str_fio)
+	def finder_email(str_email)
 		@mas_of_finds = Array.new()
 		@mas_of_emp.each do |pers|
-			if(pers.email == str_fio)
+			if(pers.email == str_email)
 				@mas_of_finds << pers
 			end
 		end
 		@mas_of_finds
 	end
 
-	def finder_tel(str_fio)
+	def finder_tel(str_tel)
 		@mas_of_finds = Array.new()
 		@mas_of_emp.each do |pers|
-			if(pers.telepfone == str_fio)
+			if(pers.telephone == pers.tel_stabilizator(str_tel))
 				@mas_of_finds << pers
 			end
 		end
@@ -60,7 +59,7 @@ class ListEmployee
 
 
 	def printer
-		@mas_of_emp
+		@mas_of_emp #Добавить цифры?
 	end
 
 end

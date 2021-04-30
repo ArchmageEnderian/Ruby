@@ -1,5 +1,4 @@
-r = File.dirname(__FILE__)
-require "#{r}/ListEmployee.rb"
+require_relative "ListEmployee.rb"
 
 
 class TerminalViewEmp
@@ -33,17 +32,22 @@ class TerminalViewEmp
 					@listed.write_all
 				when 8
 					break
-				when 0
-					break
 			end
 		end
 	end
 
 	def changer
-		puts "Выберите запись для изменения (введите номер)"
 		self.printer
+		puts "Выберите запись для изменения (введите номер)"
 		choise = gets.chomp.to_i
-		puts "" # Доделать изменеие записи, гемор
+		puts "Выберите поле для изменения" # Доделать изменеие записи, гемор
+		i = -1
+
+		while i != 0
+			
+
+		end
+
 
 		
 	end
