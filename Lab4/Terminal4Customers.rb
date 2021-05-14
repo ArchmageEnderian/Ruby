@@ -33,7 +33,7 @@ class Terminal
 				when 2
 					self.printer
 				when 3
-					#self.group_finder
+					self.group_finder
 				when 4
 					#self.changer
 				when 5
@@ -82,9 +82,39 @@ class Terminal
 		end
 	end
 
+	def group_finder
+		puts "Выберите поле поиска\n1 - ФИО\n2 - Email\n3 - Телефон\n0 - Выход"
+		print "Ваш выбор: "
+		choise = gets.chomp.to_i
+		puts ""
+		case choise
+			when 1
+				self.find_fio
+			when 2
+				self.find_email
+			when 3
+				self.find_tel
+			when 0
+				#skippingo#
+		end
+	end
 
+	def find_fio
+		str = gets.chomp
+		system "clear"
+		puts "====================", @listed.finder_fio(str), "===================="
+	end
 
-
+	def find_email
+		str = gets.chomp
+		system "clear"
+		puts "====================", @listed.finder_email(str), "===================="
+	end
+		def find_tel
+		str = gets.chomp
+		system "clear"
+		puts "====================", @listed.finder_tel(str), "===================="
+	end
 
 
 
