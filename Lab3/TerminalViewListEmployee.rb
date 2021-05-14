@@ -1,4 +1,5 @@
 require_relative "ListEmployee.rb"
+require_relative "Employee.rb"
 
 
 class TerminalViewEmp
@@ -40,6 +41,8 @@ class TerminalViewEmp
 					self.deleter
 				when 6
 					@listed.write_all
+				when 7
+					self.sorter
 				when 8
 					break
 			end
@@ -49,24 +52,29 @@ class TerminalViewEmp
 
 	def changer
 		self.printer
-		puts "Выберите запись для изменения (введите номер)"
+		puts "Выберите запись для изменения"
+		print "Ваш выбор: " #Через методы класса Emp
+		choise = gets.chomp
+		puts "1)ФИО\n2)Серия\n3)Номер\n4)Специализация\n5)ДР\n6)Контакты\n7)Почта\n8)Адресс\n9)Стаж\n10)Предудыщая работа\n11)Прошлая специальность\n12)Заработная Плата\n0)Выход"
+		puts "Выберите поле для изменения"
 		print "Ваш выбор: "
-		choise = (gets.chomp.to_i) - 1
-		i = -1
-
-		while i != 0
-			system "clear"
-			self.printer
-			puts "1)ФИО\n2)Серия\n3)Номер\n4)Специализация\n5)ДР\n6)Контакты\n7)Почта\n8)Адресс\n9)Стаж\n10)Предудыщая работа\n11)Прошлая специальность\n12)Заработная Плата\n0)Выход"
-			puts "Выберите поле для изменения"
-			print "Ваш выбор: "
-			i = gets.chomp.to_i
-			if (i != 0)
-				print "Введите новые данные: "
-				strr = gets.chomp
-				@listed.person_changer(choise, i, strr)
-			end
+		i = gets.chomp.to_i
+		puts "Введите новые данные"
+		print "Ваш выбор: "
+		strr = gets.chomp
+		if Employee.is_fio_correct?(choise)
+			@listed.person_checker_fio(choise, i, strr)
+			puts "Готово!"
+		elsif Employee.is_telephone_correct?(choise)
+			@listed.person_checker(choise, i, strr)
+			puts "Готово!"
+		elsif Employee.is_email_correct?(choise)
+			@listed.person_checker(choise, i, strr)
+			puts "Готово!"
+		else
+			puts "Неверный формат ввода"
 		end
+
 	end
 
 	def group_finder
@@ -108,6 +116,16 @@ class TerminalViewEmp
 		puts "Выберите запись для изменения (введите номер)"
 		choise = (gets.chomp.to_i) - 1
 		@listed.person_killer(choise)
+	end
+
+	def sorter
+		system "clear"
+		self.printer
+		puts "1)ФИО\n2)Серия\n3)Номер\n4)Специализация\n5)ДР\n6)Контакты\n7)Почта\n8)Адресс\n9)Стаж\n10)Предудыщая работа\n11)Прошлая специальность\n12)Заработная Плата\n0)Выход"
+		puts "Выберите поле сортировки"
+		choise = (gets.chomp.to_i) - 1
+		puts "====================", @listed.field_sort(choise), "===================="
+
 	end
 
 	def adder
