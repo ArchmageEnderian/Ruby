@@ -64,21 +64,21 @@ class Customer
 #====================================================================================================#
 
 def to_s
-    t = "ФИО: #{@fio}; " + "" + "Счет: #{@money}; Статус текущей сделки: #{@status_current}" #Доделать
+    t = "ФИО: #{@fio}; Серия пасспорта: #{@passport_ser}; Номер пасспорта: #{@passport_num}; Счет: #{@money}; Статус текущей сделки: #{@status_current}"
     return t
 end
 
-def self.string_to_object(str)
-	fio = str[0].split(":")[1].strip
-	passport_ser = str[1].split(":")[1].strip
-	passport_num = str[2].split(":")[1].strip
-	money = str[3].split(":")[1].strip
-	status = str[4].split(":")[1].strip
-
+def self.string_to_object(mass_str)
+	fio = mass_str[0].split(":")[1].strip
+	passport_ser = mass_str[1].split(":")[1].strip
+	passport_num = mass_str[2].split(":")[1].strip
+	money = mass_str[3].split(":")[1].strip
+	status = mass_str[4].split(":")[1].strip
 
 	human = Customer.new(fio, passport_ser, passport_num, money, status)
 	return human
 end
+
 
 
 
