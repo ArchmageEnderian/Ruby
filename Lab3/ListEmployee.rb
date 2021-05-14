@@ -57,6 +57,18 @@ class ListEmployee
 		@mas_of_finds
 	end
 
+	def person_checker_fio(pers_id, field_id, new_str)
+		objj = ""
+		@mas_of_emp.each { |p| 
+			it = 0
+			if (p.fio == pers_id) 
+				objj = it
+			end
+			it += 1
+			}
+		person_changer(objj, field_id, new_str)
+	end
+
 	def person_changer(pers_id, field_id, new_str)
 		#костыль
 		case field_id
@@ -85,6 +97,22 @@ class ListEmployee
 			when 12
 				@mas_of_emp[pers_id].last_money = new_str
 		end
+	end
+
+	def field_sort(field)
+		#mas_fios = Array.new
+		@mas_of_emp.sort { |cl1, cl2|
+			qwe1 = cl1.fio[0]
+			qwe2 = cl2.fio[0]
+
+			if (qwe1 > qwe2)
+				qwe = cl1
+				cl1 = cl2
+				cl2 = qwe
+			end
+		}
+		#mas_fios.sort
+		return mas_of_emp[0..4]
 	end
 
 	def person_killer(pers_to_kill)
