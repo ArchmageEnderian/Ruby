@@ -17,9 +17,14 @@ class ListOfCustomers
 		File.write("#{r}/Customers.txt", @mas_of_customers.join("\n"))
 	end
 
+	def add_customer(fio, passport_ser, passport_num, money, status)
+		custom = Customer.new(fio, passport_ser, passport_num, money, status)
+		@mas_of_customers << custom
+	end
 
-
-
+	def printer
+		@mas_of_customers #Добавить цифры?
+	end
 
 
 

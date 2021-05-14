@@ -35,13 +35,13 @@ class Customer
 #====================================================================================================#
 
 	def status_checker(stat)
-		raise "Rоличество заказов превышено!" unless Customer.is_status_opened? stat
+		raise "Количество заказов превышено!" unless Customer.is_status_opened? stat
 		#=================Добавление заказа#=================#
 		return stat
 	end
 
 	def fio_stabilizator(fio)
-		raise "Неверный формат ФИО: #{fio}" unless Employee.is_fio_correct? fio.strip
+		raise "Неверный формат ФИО: #{fio}" unless Customer.is_fio_correct? fio.strip
 		word_fio = fio.split()
 		mas = Array.new()
 		word_fio.each_index { |i| mas[i] = word_fio[i].split("-").each { |sl| sl.capitalize } } #Иван-дурак -> Иван-Дурак ???
@@ -52,9 +52,9 @@ class Customer
 
 	def self.is_status_opened?(status_current)
 		if(@status_current != true)
-			return false
+			return true
 		end
-		return true
+		return false
 	end
 
 	def self.is_fio_correct?(fio)
@@ -64,7 +64,7 @@ class Customer
 #====================================================================================================#
 
 def to_s
-    t = "ФИО: #{@fio}; Серия пасспорта: #{@passport_ser}; Номер пасспорта: #{@passport_num}; Счет: #{@money}; Статус текущей сделки: #{@status_current}"
+    t = "ФИО: #{@fio}; Серия пасспорта: #{@passport_seria}; Номер пасспорта: #{@passport_number}; Счет: #{@money}; Статус текущей сделки: #{@status_current}"
     return t
 end
 
