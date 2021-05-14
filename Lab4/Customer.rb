@@ -52,6 +52,9 @@ class Customer
 
 	def self.is_status_opened?(status_current)
 		if(@status_current != true)
+			return false
+		end
+		return true
 	end
 
 	def self.is_fio_correct?(fio)
